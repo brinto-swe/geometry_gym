@@ -1,7 +1,9 @@
 from django.db import models
 from django.conf import settings
 from classes.models import FitnessClass
+from django.utils import timezone
 
+booked_at = models.DateTimeField(default=timezone.now)
 User = settings.AUTH_USER_MODEL
 
 class Booking(models.Model):
@@ -11,11 +13,12 @@ class Booking(models.Model):
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='bookings')
     fitness_class = models.ForeignKey(FitnessClass, on_delete=models.CASCADE, related_name='bookings')
+    booked_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='booked')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user','fitness_class')  # prevent duplicate bookings
+        unique_together = ('user','fitness_class') 
         ordering = ['-created_at']
 
     def __str__(self):

@@ -7,6 +7,7 @@ User = get_user_model()
 
 class FitnessClassSerializer(serializers.ModelSerializer):
     instructor_detail = serializers.SerializerMethodField(read_only=True)
+    image = serializers.ImageField(required=False)
 
     class Meta:
         model = FitnessClass

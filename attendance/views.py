@@ -10,6 +10,9 @@ class AttendanceViewSet(viewsets.ModelViewSet):
     serializer_class = AttendanceSerializer
     permission_classes = [IsAuthenticated]
 
+    def perform_create(self, serializer):
+        serializer.save(marked_by=self.request.user)
+        
     def get_queryset(self):
         user = self.request.user
         # staff/admin see all; members see their own attendance
@@ -28,3 +31,5 @@ class AttendanceViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save(marked_by=user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    

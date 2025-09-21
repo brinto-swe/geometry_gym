@@ -3,11 +3,13 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from rest_framework.response import Response
 from .models import FitnessClass
 from .serializers import FitnessClassSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 
 class FitnessClassViewSet(viewsets.ModelViewSet):
     queryset = FitnessClass.objects.all()
     serializer_class = FitnessClassSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    parser_classes = (MultiPartParser, FormParser)
 
     def perform_create(self, serializer):
         # Only staff/admin users should be allowed to create (we assume role-check later)
