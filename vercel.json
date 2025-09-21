@@ -1,13 +1,9 @@
 {
-    "builds": [{
-        "src": "geometry_gym/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.3" }
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "geometry_gym/wsgi.py"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    { "src": "geometry_gym/wsgi.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "geometry_gym/wsgi.py" }
+  ]
 }
