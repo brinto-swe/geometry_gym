@@ -213,3 +213,11 @@ SWAGGER_SETTINGS = {
       }
    }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://geometry-gym.vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://geometry-gym.vercel.app",
+]
