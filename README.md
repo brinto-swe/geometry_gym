@@ -2,7 +2,7 @@
 
 A full-stack Gym Management System built with **Django REST Framework (DRF)** for the backend and **React (Vercel)** for the frontend.  
 The system supports three roles — **Admin, Staff, and Member** — with role-based access control, email verification, and JWT authentication.  
-Live Link:https://vercel.com/brintos-projects-17ed2514/geometry-gym/ALric1p6BWet62LhyzRoCohFYXQi
+Live Link: https://geometry-gym.vercel.app/swagger/
 ---
 
 ## ✨ Features
